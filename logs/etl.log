@@ -1,0 +1,46 @@
+2025-09-27 21:34:28,056 - INFO - ETL iniciado
+2025-09-27 21:34:31,523 - INFO - Closing down clientserver connection
+2025-09-27 21:53:53,213 - INFO - ETL iniciado
+2025-09-27 21:53:56,843 - INFO - Closing down clientserver connection
+2025-09-27 21:57:16,494 - INFO - ETL iniciado
+2025-09-27 21:57:20,240 - INFO - Closing down clientserver connection
+2025-09-27 22:00:58,487 - INFO - ETL iniciado
+2025-09-27 22:01:02,031 - INFO - Closing down clientserver connection
+2025-09-27 22:01:55,242 - INFO - ETL iniciado
+2025-09-27 22:01:59,042 - INFO - Closing down clientserver connection
+2025-09-27 22:09:22,144 - INFO - ETL iniciado
+2025-09-27 22:09:30,335 - INFO - Closing down clientserver connection
+2025-09-28 18:11:32,760 - INFO - [ETL] Action=Início 
+2025-09-28 18:11:35,525 - INFO - [Extração] Database=elysium Table=cliente Action=Lendo dados 
+2025-09-28 18:11:38,466 - INFO - [Extração] Database=elysium Table=cliente Result=60 registros extraídos 
+2025-09-28 18:11:38,466 - INFO - [Extração] Database=elysium Table=endereco Action=Lendo dados 
+2025-09-28 18:11:38,678 - INFO - [Extração] Database=elysium Table=endereco Result=60 registros extraídos 
+2025-09-28 18:11:38,678 - INFO - [Extração] Database=elysium Table=propriedades Action=Lendo dados 
+2025-09-28 18:11:38,858 - INFO - [Extração] Database=elysium Table=propriedades Result=60 registros extraídos 
+2025-09-28 18:11:38,858 - INFO - [Extração] Database=elysium Table=negativacao Action=Lendo dados 
+2025-09-28 18:11:39,037 - INFO - [Extração] Database=elysium Table=negativacao Result=60 registros extraídos 
+2025-09-28 18:11:39,037 - INFO - [Transformação] Action=Aplicar regra de negócio 
+2025-09-28 18:11:39,340 - INFO - [Transformação] Result=Regra de negócio aplicada com sucesso 
+2025-09-28 18:11:40,491 - INFO - [Carga S3] Action=Início 
+2025-09-28 18:11:40,643 - INFO - [S3] Action=Verificar bucket Result=Bucket motivo-de-decisao já existe 
+2025-09-28 18:11:41,437 - INFO - [Carga S3] Action=Upload Result=analises/part-00000.json -> 1 registros 
+2025-09-28 18:11:41,437 - INFO - [Carga S3] Result=Finalizada com sucesso 
+2025-09-28 18:11:41,969 - INFO - [ETL] Action=Fim 
+2025-09-28 18:11:41,969 - INFO - Closing down clientserver connection
+2025-09-28 19:24:47,350 - INFO - [ETL] Action=Início 
+2025-09-28 19:24:50,398 - INFO - [Extração] Database=elysium Table=cliente Action=Lendo dados 
+2025-09-28 19:24:53,345 - INFO - [Extração] Database=elysium Table=cliente Result=60 registros extraídos 
+2025-09-28 19:24:53,345 - INFO - [Extração] Database=elysium Table=endereco Action=Lendo dados 
+2025-09-28 19:24:53,621 - INFO - [Extração] Database=elysium Table=endereco Result=60 registros extraídos 
+2025-09-28 19:24:53,622 - INFO - [Extração] Database=elysium Table=propriedades Action=Lendo dados 
+2025-09-28 19:24:53,830 - INFO - [Extração] Database=elysium Table=propriedades Result=60 registros extraídos 
+2025-09-28 19:24:53,831 - INFO - [Extração] Database=elysium Table=negativacao Action=Lendo dados 
+2025-09-28 19:24:54,045 - INFO - [Extração] Database=elysium Table=negativacao Result=60 registros extraídos 
+2025-09-28 19:24:54,045 - INFO - [Transformação] Action=Aplicar regra de negócio 
+2025-09-28 19:24:54,320 - INFO - [Transformação] Result=Regra de negócio aplicada com sucesso 
+2025-09-28 19:24:55,480 - INFO - [Carga S3] Action=Início 
+2025-09-28 19:24:55,619 - INFO - [S3] Action=Verificar bucket Result=Bucket motivo-de-decisao já existe 
+2025-09-28 19:24:56,421 - INFO - [Carga S3] Action=Upload Result=analises/part-00000.json -> 1 registros 
+2025-09-28 19:24:56,422 - INFO - [Carga S3] Result=Finalizada com sucesso 
+2025-09-28 19:24:56,652 - INFO - [ETL] Action=Fim 
+2025-09-28 19:24:56,653 - INFO - Closing down clientserver connection

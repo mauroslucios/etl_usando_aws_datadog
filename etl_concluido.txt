@@ -1,0 +1,689 @@
+(.venv) mauro-lucio-pereira-da-silva@mauro-lucio:~/nfs/python_projects/elysium$ spark-submit --jars mysql-connector-j-8.0.33.jar etl_motivo_decisao.py
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/28 19:24:35 WARN Utils: Your hostname, mauro-lucio, resolves to a loopback address: 127.0.1.1; using 192.168.0.102 instead (on interface enp1s0)
+25/09/28 19:24:35 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+25/09/28 19:24:46 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+25/09/28 19:24:47 INFO SparkContext: Running Spark version 4.0.1
+25/09/28 19:24:47 INFO SparkContext: OS info Linux, 6.14.0-29-generic, amd64
+25/09/28 19:24:47 INFO SparkContext: Java version 17.0.16
+25/09/28 19:24:47 INFO ResourceUtils: ==============================================================
+25/09/28 19:24:47 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/09/28 19:24:47 INFO ResourceUtils: ==============================================================
+25/09/28 19:24:47 INFO SparkContext: Submitted application: ETL
+25/09/28 19:24:47 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/09/28 19:24:47 INFO ResourceProfile: Limiting resource is cpu
+25/09/28 19:24:47 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/09/28 19:24:47 INFO SecurityManager: Changing view acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:47 INFO SecurityManager: Changing modify acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:47 INFO SecurityManager: Changing view acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:47 INFO SecurityManager: Changing modify acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:47 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mauro-lucio-pereira-da-silva groups with view permissions: EMPTY; users with modify permissions: mauro-lucio-pereira-da-silva; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/28 19:24:47 INFO Utils: Successfully started service 'sparkDriver' on port 45571.
+25/09/28 19:24:47 INFO SparkEnv: Registering MapOutputTracker
+25/09/28 19:24:47 INFO SparkEnv: Registering BlockManagerMaster
+25/09/28 19:24:47 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/09/28 19:24:47 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/09/28 19:24:47 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/09/28 19:24:47 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f84cd6c4-1bfb-4384-b0fb-4c8691de6780
+25/09/28 19:24:47 INFO SparkEnv: Registering OutputCommitCoordinator
+25/09/28 19:24:48 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/09/28 19:24:48 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/09/28 19:24:48 INFO SparkContext: Added JAR mysql-connector-j-8.0.33.jar at spark://192.168.0.102:45571/jars/mysql-connector-j-8.0.33.jar with timestamp 1759098287426
+25/09/28 19:24:48 INFO SecurityManager: Changing view acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:48 INFO SecurityManager: Changing modify acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:48 INFO SecurityManager: Changing view acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:48 INFO SecurityManager: Changing modify acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:48 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mauro-lucio-pereira-da-silva groups with view permissions: EMPTY; users with modify permissions: mauro-lucio-pereira-da-silva; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/28 19:24:48 INFO Executor: Starting executor ID driver on host 192.168.0.102
+25/09/28 19:24:48 INFO Executor: OS info Linux, 6.14.0-29-generic, amd64
+25/09/28 19:24:48 INFO Executor: Java version 17.0.16
+25/09/28 19:24:48 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+25/09/28 19:24:48 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4204f7ac for default.
+25/09/28 19:24:48 INFO Executor: Fetching spark://192.168.0.102:45571/jars/mysql-connector-j-8.0.33.jar with timestamp 1759098287426
+25/09/28 19:24:48 INFO TransportClientFactory: Successfully created connection to /192.168.0.102:45571 after 23 ms (0 ms spent in bootstraps)
+25/09/28 19:24:48 INFO Utils: Fetching spark://192.168.0.102:45571/jars/mysql-connector-j-8.0.33.jar to /tmp/spark-5fccfc34-cfc3-4578-810f-1cfed6398bd9/userFiles-e6b3f5b3-4172-413d-b5cf-f1b66956d9b0/fetchFileTemp17699540941182902797.tmp
+25/09/28 19:24:48 INFO Executor: Adding file:/tmp/spark-5fccfc34-cfc3-4578-810f-1cfed6398bd9/userFiles-e6b3f5b3-4172-413d-b5cf-f1b66956d9b0/mysql-connector-j-8.0.33.jar to class loader default
+25/09/28 19:24:48 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40303.
+25/09/28 19:24:48 INFO NettyBlockTransferService: Server created on 192.168.0.102:40303
+25/09/28 19:24:48 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/09/28 19:24:48 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 192.168.0.102, 40303, None)
+25/09/28 19:24:48 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.0.102:40303 with 434.4 MiB RAM, BlockManagerId(driver, 192.168.0.102, 40303, None)
+25/09/28 19:24:48 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 192.168.0.102, 40303, None)
+25/09/28 19:24:48 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 192.168.0.102, 40303, None)
+25/09/28 19:24:50 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+25/09/28 19:24:50 INFO SharedState: Warehouse path is 'file:/home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/spark-warehouse'.
+25/09/28 19:24:52 INFO CodeGenerator: Code generated in 171.545886 ms
+25/09/28 19:24:52 INFO DAGScheduler: Registering RDD 2 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 0
+25/09/28 19:24:52 INFO DAGScheduler: Got map stage job 0 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:52 INFO DAGScheduler: Final stage: ShuffleMapStage 0 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:52 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:52 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:52 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[2] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:52 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/09/28 19:24:52 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 15.8 KiB, free 434.4 MiB)
+25/09/28 19:24:52 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 8.1 KiB, free 434.4 MiB)
+25/09/28 19:24:52 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:52 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[2] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:52 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+25/09/28 19:24:52 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:52 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+25/09/28 19:24:52 INFO CodeGenerator: Code generated in 21.966817 ms
+25/09/28 19:24:52 INFO SecurityManager: Changing view acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:52 INFO SecurityManager: Changing modify acls to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:52 INFO SecurityManager: Changing view acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:52 INFO SecurityManager: Changing modify acls groups to: mauro-lucio-pereira-da-silva
+25/09/28 19:24:52 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: mauro-lucio-pereira-da-silva groups with view permissions: EMPTY; users with modify permissions: mauro-lucio-pereira-da-silva; groups with modify permissions: EMPTY; RPC SSL disabled
+25/09/28 19:24:52 INFO JDBCRDD: closed connection
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2077 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 254 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 0.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ShuffleMapStage 0 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 455 ms
+25/09/28 19:24:53 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:53 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:53 INFO CodeGenerator: Code generated in 13.313214 ms
+25/09/28 19:24:53 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:53 INFO DAGScheduler: Got job 1 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ResultStage 2 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[5] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 13.6 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.5 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[5] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 1) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 2.0 (TID 1)
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 13 ms
+25/09/28 19:24:53 INFO CodeGenerator: Code generated in 19.540411 ms
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 2.0 (TID 1). 3981 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 1) in 115 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 2.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ResultStage 2 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 133 ms
+25/09/28 19:24:53 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Canceling stage 2
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+25/09/28 19:24:53 INFO DAGScheduler: Job 1 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 155.795518 ms
+25/09/28 19:24:53 INFO DAGScheduler: Registering RDD 8 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 1
+25/09/28 19:24:53 INFO DAGScheduler: Got map stage job 2 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ShuffleMapStage 3 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[8] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 15.8 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 8.1 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[8] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 2) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 3.0 (TID 2)
+25/09/28 19:24:53 INFO JDBCRDD: closed connection
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 3.0 (TID 2). 1991 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 2) in 55 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 3.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ShuffleMapStage 3 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 79 ms
+25/09/28 19:24:53 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:53 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:53 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:53 INFO DAGScheduler: Got job 3 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ResultStage 5 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[11] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 13.6 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 6.5 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[11] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 3) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 5.0 (TID 3)
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 5.0 (TID 3). 3895 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 3) in 17 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 5.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ResultStage 5 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 28 ms
+25/09/28 19:24:53 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Canceling stage 5
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+25/09/28 19:24:53 INFO DAGScheduler: Job 3 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 33.170915 ms
+25/09/28 19:24:53 INFO DAGScheduler: Registering RDD 14 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 2
+25/09/28 19:24:53 INFO DAGScheduler: Got map stage job 4 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ShuffleMapStage 6 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[14] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 15.8 KiB, free 434.3 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 8.1 KiB, free 434.3 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[14] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 4) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 6.0 (TID 4)
+25/09/28 19:24:53 INFO JDBCRDD: closed connection
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 6.0 (TID 4). 1991 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 4) in 34 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 6.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ShuffleMapStage 6 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 45 ms
+25/09/28 19:24:53 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:53 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:53 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:53 INFO DAGScheduler: Got job 5 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ResultStage 8 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[17] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 13.6 KiB, free 434.3 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 6.5 KiB, free 434.3 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[17] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 5) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 8.0 (TID 5)
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:53 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 8.0 (TID 5). 3895 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 5) in 20 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 8.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ResultStage 8 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 31 ms
+25/09/28 19:24:53 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Canceling stage 8
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+25/09/28 19:24:53 INFO DAGScheduler: Job 5 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 35.210791 ms
+25/09/28 19:24:53 INFO DAGScheduler: Registering RDD 20 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 3
+25/09/28 19:24:53 INFO DAGScheduler: Got map stage job 6 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:53 INFO DAGScheduler: Final stage: ShuffleMapStage 9 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:53 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:53 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:53 INFO DAGScheduler: Submitting ShuffleMapStage 9 (MapPartitionsRDD[20] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 15.8 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 8.1 KiB, free 434.4 MiB)
+25/09/28 19:24:53 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:53 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 9 (MapPartitionsRDD[20] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+25/09/28 19:24:53 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 6) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:53 INFO Executor: Running task 0.0 in stage 9.0 (TID 6)
+25/09/28 19:24:53 INFO JDBCRDD: closed connection
+25/09/28 19:24:53 INFO Executor: Finished task 0.0 in stage 9.0 (TID 6). 1991 bytes result sent to driver
+25/09/28 19:24:53 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 6) in 46 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:53 INFO TaskSchedulerImpl: Removed TaskSet 9.0 whose tasks have all completed, from pool 
+25/09/28 19:24:53 INFO DAGScheduler: ShuffleMapStage 9 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 60 ms
+25/09/28 19:24:53 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:53 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:53 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:54 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:54 INFO DAGScheduler: Got job 7 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ResultStage 11 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 10)
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[23] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 13.6 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 6.5 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[23] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks resource profile 0
+25/09/28 19:24:54 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 7) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:54 INFO Executor: Running task 0.0 in stage 11.0 (TID 7)
+25/09/28 19:24:54 INFO ShuffleBlockFetcherIterator: Getting 1 (60.0 B) non-empty blocks including 1 (60.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:54 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:54 INFO Executor: Finished task 0.0 in stage 11.0 (TID 7). 3895 bytes result sent to driver
+25/09/28 19:24:54 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 7) in 14 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Removed TaskSet 11.0 whose tasks have all completed, from pool 
+25/09/28 19:24:54 INFO DAGScheduler: ResultStage 11 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 25 ms
+25/09/28 19:24:54 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Canceling stage 11
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Killing all running tasks in stage 11: Stage finished
+25/09/28 19:24:54 INFO DAGScheduler: Job 7 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 30.634074 ms
+=== Preview da decisão ===
+25/09/28 19:24:54 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 26.080782 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 26.261167 ms
+25/09/28 19:24:54 INFO DAGScheduler: Registering RDD 30 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 4
+25/09/28 19:24:54 INFO DAGScheduler: Got map stage job 8 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ShuffleMapStage 12 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ShuffleMapStage 12 (MapPartitionsRDD[30] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 23.253651 ms
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 16.4 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 8.3 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 12 (MapPartitionsRDD[30] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Adding task set 12.0 with 1 tasks resource profile 0
+25/09/28 19:24:54 INFO DAGScheduler: Registering RDD 31 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 5
+25/09/28 19:24:54 INFO DAGScheduler: Got map stage job 9 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO TaskSetManager: Starting task 0.0 in stage 12.0 (TID 8) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ShuffleMapStage 13 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ShuffleMapStage 13 (MapPartitionsRDD[31] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO Executor: Running task 0.0 in stage 12.0 (TID 8)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 15.9 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 8.2 KiB, free 434.4 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 13 (MapPartitionsRDD[31] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Adding task set 13.0 with 1 tasks resource profile 0
+25/09/28 19:24:54 INFO DAGScheduler: Registering RDD 33 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 6
+25/09/28 19:24:54 INFO DAGScheduler: Got map stage job 10 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ShuffleMapStage 14 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:54 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 9) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ShuffleMapStage 14 (MapPartitionsRDD[33] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO Executor: Running task 0.0 in stage 13.0 (TID 9)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 17.4 KiB, free 434.3 MiB)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 8.7 KiB, free 434.3 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 14 (MapPartitionsRDD[33] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Adding task set 14.0 with 1 tasks resource profile 0
+25/09/28 19:24:54 INFO TaskSetManager: Starting task 0.0 in stage 14.0 (TID 10) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:54 INFO Executor: Running task 0.0 in stage 14.0 (TID 10)
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 15.659951 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 18.176894 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 52.778622 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 21.53918 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 32.037126 ms
+25/09/28 19:24:54 INFO JDBCRDD: closed connection
+25/09/28 19:24:54 INFO JDBCRDD: closed connection
+25/09/28 19:24:54 INFO JDBCRDD: closed connection
+25/09/28 19:24:54 INFO Executor: Finished task 0.0 in stage 13.0 (TID 9). 1955 bytes result sent to driver
+25/09/28 19:24:54 INFO Executor: Finished task 0.0 in stage 14.0 (TID 10). 1912 bytes result sent to driver
+25/09/28 19:24:54 INFO TaskSetManager: Finished task 0.0 in stage 14.0 (TID 10) in 103 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Removed TaskSet 14.0 whose tasks have all completed, from pool 
+25/09/28 19:24:54 INFO Executor: Finished task 0.0 in stage 12.0 (TID 8). 1912 bytes result sent to driver
+25/09/28 19:24:54 INFO DAGScheduler: ShuffleMapStage 14 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 125 ms
+25/09/28 19:24:54 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:54 INFO DAGScheduler: running: HashSet(ShuffleMapStage 12, ShuffleMapStage 13)
+25/09/28 19:24:54 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:54 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 9) in 129 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Removed TaskSet 13.0 whose tasks have all completed, from pool 
+25/09/28 19:24:54 INFO TaskSetManager: Finished task 0.0 in stage 12.0 (TID 8) in 149 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Removed TaskSet 12.0 whose tasks have all completed, from pool 
+25/09/28 19:24:54 INFO DAGScheduler: ShuffleMapStage 13 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 148 ms
+25/09/28 19:24:54 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:54 INFO DAGScheduler: running: HashSet(ShuffleMapStage 12)
+25/09/28 19:24:54 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: ShuffleMapStage 12 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 181 ms
+25/09/28 19:24:54 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:54 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:54 INFO DAGScheduler: Registering RDD 35 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) as input to shuffle 7
+25/09/28 19:24:54 INFO DAGScheduler: Got map stage job 11 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ShuffleMapStage 15 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ShuffleMapStage 15 (MapPartitionsRDD[35] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 31.2 KiB, free 434.3 MiB)
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 14.3 KiB, free 434.3 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 15 (MapPartitionsRDD[35] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:54 INFO TaskSchedulerImpl: Adding task set 15.0 with 1 tasks resource profile 0
+25/09/28 19:24:54 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 11) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:54 INFO Executor: Running task 0.0 in stage 15.0 (TID 11)
+25/09/28 19:24:54 INFO ShufflePartitionsUtil: For shuffle(4, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 28.694715 ms
+25/09/28 19:24:54 INFO ShufflePartitionsUtil: For shuffle(5, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 10.421703 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 9.896827 ms
+25/09/28 19:24:54 INFO CodeGenerator: Code generated in 11.640151 ms
+25/09/28 19:24:54 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:54 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:54 INFO DAGScheduler: Got job 13 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:54 INFO DAGScheduler: Final stage: ResultStage 17 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:54 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 16)
+25/09/28 19:24:54 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:54 INFO DAGScheduler: Submitting ResultStage 17 (MapPartitionsRDD[38] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 8.6 KiB, free 433.0 MiB)
+25/09/28 19:24:54 INFO JDBCRDD: closed connection
+25/09/28 19:24:54 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 4.3 KiB, free 433.1 MiB)
+25/09/28 19:24:54 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 17 (MapPartitionsRDD[38] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 17.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 12) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:55 INFO DAGScheduler: Got job 12 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ResultStage 19 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 17.0 (TID 12)
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[39] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 8.6 KiB, free 434.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 4.3 KiB, free 434.3 MiB)
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 15.0 (TID 11). 2409 bytes result sent to driver
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Getting 1 (813.0 B) non-empty blocks including 1 (813.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 19 (MapPartitionsRDD[39] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 19.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 11) in 167 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 15.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ShuffleMapStage 15 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 179 ms
+25/09/28 19:24:55 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 13) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:55 INFO DAGScheduler: running: HashSet(ResultStage 17, ResultStage 19)
+25/09/28 19:24:55 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 19.0 (TID 13)
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 17.0 (TID 12). 4195 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 12) in 20 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 17.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ResultStage 17 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 32 ms
+25/09/28 19:24:55 INFO DAGScheduler: Job 13 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Canceling stage 17
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Killing all running tasks in stage 17: Stage finished
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Getting 1 (780.0 B) non-empty blocks including 1 (780.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:55 INFO DAGScheduler: Job 13 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 46.293344 ms
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 19.0 (TID 13). 4225 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 13) in 23 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 19.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ResultStage 19 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 34 ms
+25/09/28 19:24:55 INFO DAGScheduler: Job 12 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Canceling stage 19
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Killing all running tasks in stage 19: Stage finished
+25/09/28 19:24:55 INFO DAGScheduler: Job 12 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 62.106309 ms
+25/09/28 19:24:55 INFO ShufflePartitionsUtil: For shuffle(7, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 8.731268 ms
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 1024.5 KiB, free 432.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 1024.5 KiB, free 432.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 913.0 B, free 432.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 1066.0 B, free 432.3 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 15 from $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 14 from $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:55 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 27.766779 ms
+25/09/28 19:24:55 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:55 INFO DAGScheduler: Got job 14 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ResultStage 21 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 20)
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ResultStage 21 (MapPartitionsRDD[42] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 42.9 KiB, free 432.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 19.4 KiB, free 432.3 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 21 (MapPartitionsRDD[42] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 21.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 14) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 21.0 (TID 14)
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Getting 1 (1165.0 B) non-empty blocks including 1 (1165.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 26.355884 ms
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 21.0 (TID 14). 5546 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 14) in 65 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 21.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ResultStage 21 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 76 ms
+25/09/28 19:24:55 INFO DAGScheduler: Job 14 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Canceling stage 21
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Killing all running tasks in stage 21: Stage finished
+25/09/28 19:24:55 INFO DAGScheduler: Job 14 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 80.291789 ms
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_17 stored as values in memory (estimated size 1024.5 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_17_piece0 stored as bytes in memory (estimated size 1244.0 B, free 431.3 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 17 from $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:55 INFO ShufflePartitionsUtil: For shuffle(6, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 19.291177 ms
+25/09/28 19:24:55 INFO SparkContext: Starting job: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768
+25/09/28 19:24:55 INFO DAGScheduler: Got job 15 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ResultStage 23 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 22)
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ResultStage 23 (MapPartitionsRDD[45] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768), which has no missing parents
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_18 stored as values in memory (estimated size 21.9 KiB, free 431.4 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_18_piece0 stored as bytes in memory (estimated size 8.9 KiB, free 431.4 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 18 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 23 (MapPartitionsRDD[45] at $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 23.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 23.0 (TID 15) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 23.0 (TID 15)
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Getting 1 (2.4 KiB) non-empty blocks including 1 (2.4 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 22.589626 ms
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 23.0 (TID 15). 3643 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 23.0 (TID 15) in 42 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 23.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ResultStage 23 ($anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768) finished in 50 ms
+25/09/28 19:24:55 INFO DAGScheduler: Job 15 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Canceling stage 23
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Killing all running tasks in stage 23: Stage finished
+25/09/28 19:24:55 INFO DAGScheduler: Job 15 finished: $anonfun$withThreadLocalCaptured$2 at CompletableFuture.java:1768, took 59.107719 ms
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 11.416695 ms
++----------+--------------+-----------+------------+------+----------------+----------+-------------------+
+|cliente_id|nome          |tipo_pessoa|renda_mensal|zona  |valor_total_bens|negativado|aprovado_para_envio|
++----------+--------------+-----------+------------+------+----------------+----------+-------------------+
+|12        |Paulo Henrique|PF         |7000.00     |urbana|130000.00       |false     |false              |
+|13        |Agro Forte    |PJ         |210000.00   |urbana|350000.00       |false     |false              |
+|14        |Juliana Alves |PF         |13000.00    |rural |210000.00       |true      |false              |
+|18        |Patricia Gomes|PF         |14000.00    |urbana|140000.00       |false     |false              |
+|25        |Agro Norte    |PJ         |130000.00   |urbana|390000.00       |false     |false              |
++----------+--------------+-----------+------------+------+----------------+----------+-------------------+
+only showing top 5 rows
+25/09/28 19:24:55 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+25/09/28 19:24:55 INFO DAGScheduler: Registering RDD 52 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) as input to shuffle 8
+25/09/28 19:24:55 INFO DAGScheduler: Got map stage job 17 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ShuffleMapStage 24 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ShuffleMapStage 24 (MapPartitionsRDD[52] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_19 stored as values in memory (estimated size 16.7 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_19_piece0 stored as bytes in memory (estimated size 8.4 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 19 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 24 (MapPartitionsRDD[52] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 24.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO DAGScheduler: Registering RDD 53 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) as input to shuffle 9
+25/09/28 19:24:55 INFO DAGScheduler: Got map stage job 16 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ShuffleMapStage 25 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 24.0 (TID 16) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ShuffleMapStage 25 (MapPartitionsRDD[53] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 24.0 (TID 16)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_20 stored as values in memory (estimated size 16.2 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_20_piece0 stored as bytes in memory (estimated size 8.3 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 17.133152 ms
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 20 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 25 (MapPartitionsRDD[53] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 25.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO DAGScheduler: Registering RDD 55 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) as input to shuffle 10
+25/09/28 19:24:55 INFO DAGScheduler: Got map stage job 18 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 25.0 (TID 17) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ShuffleMapStage 26 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ShuffleMapStage 26 (MapPartitionsRDD[55] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 25.0 (TID 17)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_21 stored as values in memory (estimated size 32.4 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_21_piece0 stored as bytes in memory (estimated size 14.9 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 21 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 26 (MapPartitionsRDD[55] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 26.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO DAGScheduler: Registering RDD 57 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) as input to shuffle 11
+25/09/28 19:24:55 INFO DAGScheduler: Got map stage job 19 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ShuffleMapStage 27 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 26.0 (TID 18) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List()
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ShuffleMapStage 27 (MapPartitionsRDD[57] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 26.0 (TID 18)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_22 stored as values in memory (estimated size 19.3 KiB, free 431.3 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_22_piece0 stored as bytes in memory (estimated size 9.4 KiB, free 431.2 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 22 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 27 (MapPartitionsRDD[57] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 27.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 27.0 (TID 19) (192.168.0.102,executor driver, partition 0, PROCESS_LOCAL, 9654 bytes) 
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 27.0 (TID 19)
+25/09/28 19:24:55 INFO JDBCRDD: closed connection
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 24.0 (TID 16). 1869 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 24.0 (TID 16) in 49 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 24.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ShuffleMapStage 24 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 60 ms
+25/09/28 19:24:55 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:55 INFO DAGScheduler: running: HashSet(ShuffleMapStage 25, ShuffleMapStage 26, ShuffleMapStage 27)
+25/09/28 19:24:55 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:55 INFO JDBCRDD: closed connection
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 25.0 (TID 17). 1869 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 25.0 (TID 17) in 50 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 25.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ShuffleMapStage 25 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 61 ms
+25/09/28 19:24:55 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:55 INFO DAGScheduler: running: HashSet(ShuffleMapStage 26, ShuffleMapStage 27)
+25/09/28 19:24:55 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:55 INFO JDBCRDD: closed connection
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 26.0 (TID 18). 2366 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 26.0 (TID 18) in 61 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 26.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ShuffleMapStage 26 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 72 ms
+25/09/28 19:24:55 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:55 INFO DAGScheduler: running: HashSet(ShuffleMapStage 27)
+25/09/28 19:24:55 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:55 INFO CodeGenerator: Code generated in 20.795167 ms
+25/09/28 19:24:55 INFO ShufflePartitionsUtil: For shuffle(8, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:55 INFO JDBCRDD: closed connection
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 27.0 (TID 19). 1917 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 27.0 (TID 19) in 74 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 27.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ShuffleMapStage 27 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 82 ms
+25/09/28 19:24:55 INFO DAGScheduler: looking for newly runnable stages
+25/09/28 19:24:55 INFO DAGScheduler: running: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: waiting: HashSet()
+25/09/28 19:24:55 INFO DAGScheduler: failed: HashSet()
+25/09/28 19:24:55 INFO SparkContext: Starting job: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:55 INFO DAGScheduler: Got job 20 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:55 INFO DAGScheduler: Final stage: ResultStage 29 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:55 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 28)
+25/09/28 19:24:55 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:55 INFO DAGScheduler: Submitting ResultStage 29 (MapPartitionsRDD[59] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:55 INFO ShufflePartitionsUtil: For shuffle(10, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_23 stored as values in memory (estimated size 8.6 KiB, free 431.2 MiB)
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_23_piece0 stored as bytes in memory (estimated size 4.3 KiB, free 431.2 MiB)
+25/09/28 19:24:55 INFO SparkContext: Created broadcast 23 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:55 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 29 (MapPartitionsRDD[59] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Adding task set 29.0 with 1 tasks resource profile 0
+25/09/28 19:24:55 INFO ShufflePartitionsUtil: For shuffle(9, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:55 INFO TaskSetManager: Starting task 0.0 in stage 29.0 (TID 20) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:55 INFO Executor: Running task 0.0 in stage 29.0 (TID 20)
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Getting 1 (417.0 B) non-empty blocks including 1 (417.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:55 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+25/09/28 19:24:55 INFO Executor: Finished task 0.0 in stage 29.0 (TID 20). 3843 bytes result sent to driver
+25/09/28 19:24:55 INFO TaskSetManager: Finished task 0.0 in stage 29.0 (TID 20) in 15 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Removed TaskSet 29.0 whose tasks have all completed, from pool 
+25/09/28 19:24:55 INFO DAGScheduler: ResultStage 29 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 30 ms
+25/09/28 19:24:55 INFO DAGScheduler: Job 20 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Canceling stage 29
+25/09/28 19:24:55 INFO TaskSchedulerImpl: Killing all running tasks in stage 29: Stage finished
+25/09/28 19:24:55 INFO DAGScheduler: Job 20 finished: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114, took 34.278606 ms
+25/09/28 19:24:55 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+25/09/28 19:24:55 INFO MemoryStore: Block broadcast_24 stored as values in memory (estimated size 1024.5 KiB, free 430.4 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_24_piece0 stored as bytes in memory (estimated size 513.0 B, free 430.4 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 24 from toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:56 INFO SparkContext: Starting job: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:56 INFO DAGScheduler: Got job 21 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:56 INFO DAGScheduler: Final stage: ResultStage 31 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:56 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 30)
+25/09/28 19:24:56 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:56 INFO DAGScheduler: Submitting ResultStage 31 (MapPartitionsRDD[61] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_25 stored as values in memory (estimated size 8.6 KiB, free 430.4 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_25_piece0 stored as bytes in memory (estimated size 4.3 KiB, free 430.4 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 25 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:56 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 31 (MapPartitionsRDD[61] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Adding task set 31.0 with 1 tasks resource profile 0
+25/09/28 19:24:56 INFO TaskSetManager: Starting task 0.0 in stage 31.0 (TID 21) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:56 INFO Executor: Running task 0.0 in stage 31.0 (TID 21)
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Getting 1 (636.0 B) non-empty blocks including 1 (636.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+25/09/28 19:24:56 INFO CodeGenerator: Code generated in 45.230577 ms
+25/09/28 19:24:56 INFO Executor: Finished task 0.0 in stage 31.0 (TID 21). 4121 bytes result sent to driver
+25/09/28 19:24:56 INFO TaskSetManager: Finished task 0.0 in stage 31.0 (TID 21) in 28 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Removed TaskSet 31.0 whose tasks have all completed, from pool 
+25/09/28 19:24:56 INFO DAGScheduler: ResultStage 31 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 40 ms
+25/09/28 19:24:56 INFO DAGScheduler: Job 21 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Canceling stage 31
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Killing all running tasks in stage 31: Stage finished
+25/09/28 19:24:56 INFO DAGScheduler: Job 21 finished: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114, took 43.865386 ms
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_26 stored as values in memory (estimated size 1024.5 KiB, free 429.4 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_26_piece0 stored as bytes in memory (estimated size 775.0 B, free 429.4 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 26 from toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:56 INFO SparkContext: Starting job: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:56 INFO DAGScheduler: Got job 22 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:56 INFO DAGScheduler: Final stage: ResultStage 33 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:56 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 32)
+25/09/28 19:24:56 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:56 INFO DAGScheduler: Submitting ResultStage 33 (MapPartitionsRDD[64] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_27 stored as values in memory (estimated size 44.9 KiB, free 429.3 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_27_piece0 stored as bytes in memory (estimated size 20.2 KiB, free 429.3 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 27 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:56 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 33 (MapPartitionsRDD[64] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Adding task set 33.0 with 1 tasks resource profile 0
+25/09/28 19:24:56 INFO TaskSetManager: Starting task 0.0 in stage 33.0 (TID 22) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9819 bytes) 
+25/09/28 19:24:56 INFO Executor: Running task 0.0 in stage 33.0 (TID 22)
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Getting 1 (1165.0 B) non-empty blocks including 1 (1165.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+25/09/28 19:24:56 INFO CodeGenerator: Code generated in 23.63983 ms
+25/09/28 19:24:56 INFO Executor: Finished task 0.0 in stage 33.0 (TID 22). 5187 bytes result sent to driver
+25/09/28 19:24:56 INFO TaskSetManager: Finished task 0.0 in stage 33.0 (TID 22) in 49 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Removed TaskSet 33.0 whose tasks have all completed, from pool 
+25/09/28 19:24:56 INFO DAGScheduler: ResultStage 33 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 75 ms
+25/09/28 19:24:56 INFO DAGScheduler: Job 22 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Canceling stage 33
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Killing all running tasks in stage 33: Stage finished
+25/09/28 19:24:56 INFO DAGScheduler: Job 22 finished: toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114, took 79.352412 ms
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_28 stored as values in memory (estimated size 1024.5 KiB, free 428.3 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_28_piece0 stored as bytes in memory (estimated size 746.0 B, free 428.3 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 28 from toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114
+25/09/28 19:24:56 INFO ShufflePartitionsUtil: For shuffle(11, advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+25/09/28 19:24:56 INFO CodeGenerator: Code generated in 14.317673 ms
+25/09/28 19:24:56 INFO DAGScheduler: Got job 23 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) with 1 output partitions
+25/09/28 19:24:56 INFO DAGScheduler: Final stage: ResultStage 35 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114)
+25/09/28 19:24:56 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 34)
+25/09/28 19:24:56 INFO DAGScheduler: Missing parents: List()
+25/09/28 19:24:56 INFO DAGScheduler: Submitting ResultStage 35 (MapPartitionsRDD[69] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114), which has no missing parents
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_29 stored as values in memory (estimated size 26.1 KiB, free 428.4 MiB)
+25/09/28 19:24:56 INFO MemoryStore: Block broadcast_29_piece0 stored as bytes in memory (estimated size 10.7 KiB, free 428.4 MiB)
+25/09/28 19:24:56 INFO SparkContext: Created broadcast 29 from broadcast at DAGScheduler.scala:1676
+25/09/28 19:24:56 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 35 (MapPartitionsRDD[69] at toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) (first 15 tasks are for partitions Vector(0))
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Adding task set 35.0 with 1 tasks resource profile 0
+25/09/28 19:24:56 INFO TaskSetManager: Starting task 0.0 in stage 35.0 (TID 23) (192.168.0.102,executor driver, partition 0, NODE_LOCAL, 9838 bytes) 
+25/09/28 19:24:56 INFO Executor: Running task 0.0 in stage 35.0 (TID 23)
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Getting 4 (1353.0 B) non-empty blocks including 4 (1353.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+25/09/28 19:24:56 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+25/09/28 19:24:56 INFO CodeGenerator: Code generated in 16.626349 ms
+25/09/28 19:24:56 INFO Executor: Finished task 0.0 in stage 35.0 (TID 23). 4962 bytes result sent to driver
+25/09/28 19:24:56 INFO TaskSetManager: Finished task 0.0 in stage 35.0 (TID 23) in 66 ms on 192.168.0.102 (executor driver) (1/1)
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Removed TaskSet 35.0 whose tasks have all completed, from pool 
+25/09/28 19:24:56 INFO DAGScheduler: ResultStage 35 (toLocalIterator at /home/mauro-lucio-pereira-da-silva/nfs/python_projects/elysium/etl_motivo_decisao.py:114) finished in 80 ms
+25/09/28 19:24:56 INFO DAGScheduler: Job 23 is finished. Cancelling potential speculative or zombie tasks for this job
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Canceling stage 35
+25/09/28 19:24:56 INFO TaskSchedulerImpl: Killing all running tasks in stage 35: Stage finished
+25/09/28 19:24:56 INFO SparkContext: SparkContext is stopping with exitCode 0 from stop at NativeMethodAccessorImpl.java:0.
+25/09/28 19:24:56 INFO SparkUI: Stopped Spark web UI at http://192.168.0.102:4040
+25/09/28 19:24:56 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/09/28 19:24:56 INFO MemoryStore: MemoryStore cleared
+25/09/28 19:24:56 INFO BlockManager: BlockManager stopped
+25/09/28 19:24:56 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/09/28 19:24:56 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+25/09/28 19:24:56 INFO SparkContext: Successfully stopped SparkContext
+25/09/28 19:24:56 INFO ShutdownHookManager: Shutdown hook called
+25/09/28 19:24:56 INFO ShutdownHookManager: Deleting directory /tmp/spark-13166343-c6e9-4329-9821-00219512f9be
+25/09/28 19:24:56 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-6e208ed4-4a05-4dc9-9dc6-fe777f5532e8
+25/09/28 19:24:56 INFO ShutdownHookManager: Deleting directory /tmp/spark-5fccfc34-cfc3-4578-810f-1cfed6398bd9/pyspark-a5465b5f-2109-4e59-81c0-bd7abbd479b1
+25/09/28 19:24:56 INFO ShutdownHookManager: Deleting directory /tmp/spark-5fccfc34-cfc3-4578-810f-1cfed6398bd9
+(.venv) mauro-lucio-pereira-da-silva@mauro-lucio:~/nfs/python_projects/elysium$ 
+(.venv) mauro-lucio-pereira-da-silva@mauro-lucio:~/nfs/python_projects/elysium$ awslocal s3 ls s3://motivo-de-decisao/analises/
+2025-09-28 19:24:56        208 part-00000.json
+(.venv) mauro-lucio-pereira-da-silva@mauro-lucio:~/nfs/python_projects/elysium$ awslocal s3 cp s3://motivo-de-decisao/analises/part-00000.json -
+{"cliente_id": 1, "nome": "Joao Silva", "tipo_pessoa": "PF", "zona": "rural", "renda_mensal": 4000.0, "valor_total_bens": 350000.0, "negativado": false, "motivo": "cliente_agro_pf_ben_ge_300k_nao_negativado"}(.venv) mauro-lucio-pereira-da-silva@mauro-lucio:~/nfs/python_projects/elysium$ 
+
+
