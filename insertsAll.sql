@@ -1,0 +1,70 @@
+create database elysium;
+use elysium;
+
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS endereco;
+DROP TABLE IF EXISTS propriedades;
+DROP TABLE IF EXISTS status_decisao;
+
+CREATE TABLE cliente(
+	cliente_id INT PRIMARY KEY,
+	nome VARCHAR(80),
+	tipo_pessoa ENUM('PF','PJ'),
+	renda_mensal DECIMAL(15,2)
+);
+
+
+CREATE TABLE endereco(
+	endereco_id INT PRIMARY KEY,
+	cliente_id INT,
+	tipo VARCHAR(50), 
+	zona VARCHAR(50), -- 'urbana' ou 'rural'
+	cep VARCHAR(20),
+	FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+);
+
+CREATE TABLE propriedades(
+	prop_id INT PRIMARY KEY,
+	cliente_id INT,
+	descricao VARCHAR(200),
+	valor DECIMAL(15,2),
+	FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+);
+
+desc propriedades;
+
+
+CREATE TABLE negativacao(
+	cliente_id INT PRIMARY KEY,
+	negativacao BOOLEAN
+);
+
+
+-- Dados exemplo
+INSERT INTO cliente VALUES (1,'Joao Silva','PF',4000.00),(2,'Agro S/A','PJ',100000.00),(3,'Maria Ferreira','PF',12000.00);
+INSERT INTO endereco VALUES (1,1,'residencial','rural','25600-000'),(2,2,'sede','urbana','20000-000'),(3,3,'residencial','rural','25600-111');
+INSERT INTO propriedades VALUES (1,1,'terreno',200000.00),(2,1,'tratores',150000.00),(3,3,'imovel',350000.00);
+INSERT INTO negativacao VALUES (1,false),(2,false),(3,true);
+
+
+INSERT INTO cliente VALUES (4,'Carlos Souza','PF',8000.00),(5,'Fazenda Bela Vista','PJ',250000.00),(6,'Ana Paula','PF',15000.00),(7,'Comercial Rio Ltda','PJ',50000.00),(8,'Lucas Mendes','PF',9500.00),(9,'Rural Agropecuaria','PJ',180000.00),(10,'Fernanda Lima','PF',11000.00),(11,'Empreendimentos Sol','PJ',120000.00),(12,'Paulo Henrique','PF',7000.00),(13,'Agro Forte','PJ',210000.00),(14,'Juliana Alves','PF',13000.00),(15,'Sementes do Vale','PJ',90000.00),(16,'Roberto Dias','PF',10500.00),(17,'Agropecuaria Central','PJ',175000.00),(18,'Patricia Gomes','PF',14000.00),(19,'Fazenda Nova Era','PJ',220000.00),(20,'Ricardo Martins','PF',12500.00),(21,'Agro Terra','PJ',160000.00),(22,'Mariana Silva','PF',10000.00),(23,'Agro Sudoeste','PJ',195000.00),(24,'Bruno Costa','PF',9000.00),(25,'Agro Norte','PJ',130000.00),(26,'Gabriela Rocha','PF',11500.00),(27,'Fazenda Horizonte','PJ',240000.00),(28,'Eduardo Pires','PF',12000.00),(29,'Agro Sul','PJ',155000.00),(30,'Vanessa Souza','PF',13500.00),(31,'Agroeste Ltda','PJ',170000.00),(32,'Felipe Ramos','PF',9500.00),(33,'Agro Leste','PJ',145000.00),(34,'Camila Duarte','PF',12500.00),(35,'Fazenda Boa Vista','PJ',200000.00),(36,'Thiago Araujo','PF',11000.00),(37,'Agropecuaria Oeste','PJ',185000.00),(38,'Larissa Nunes','PF',14000.00),(39,'Agro Vale','PJ',210000.00),(40,'Marcelo Tavares','PF',10000.00),(41,'Agro Rio','PJ',135000.00),(42,'Renata Faria','PF',12000.00),(43,'Fazenda Primavera','PJ',230000.00),(44,'Bruno Lima','PF',10500.00),(45,'Agro Sertao','PJ',150000.00),(46,'Tatiane Souza','PF',13000.00),(47,'Agropecuaria Sul','PJ',175000.00),(48,'Diego Martins','PF',11500.00),(49,'Agro Norte Ltda','PJ',160000.00),(50,'Juliana Castro','PF',9000.00);
+
+INSERT INTO endereco VALUES (4,4,'residencial','urbana','25600-222'),(5,5,'sede','rural','20000-111'),(6,6,'residencial','urbana','25600-333'),(7,7,'sede','urbana','20000-222'),(8,8,'residencial','rural','25600-444'),(9,9,'sede','urbana','20000-333'),(10,10,'residencial','urbana','25600-555'),(11,11,'sede','rural','20000-444'),(12,12,'residencial','urbana','25600-666'),(13,13,'sede','urbana','20000-555'),(14,14,'residencial','rural','25600-777'),(15,15,'sede','urbana','20000-666'),(16,16,'residencial','urbana','25600-888'),(17,17,'sede','rural','20000-777'),(18,18,'residencial','urbana','25600-999'),(19,19,'sede','urbana','20000-888'),(20,20,'residencial','rural','25600-112'),(21,21,'sede','urbana','20000-999'),(22,22,'residencial','urbana','25600-113'),(23,23,'sede','rural','20000-112'),(24,24,'residencial','urbana','25600-114'),(25,25,'sede','urbana','20000-113'),(26,26,'residencial','rural','25600-115'),(27,27,'sede','urbana','20000-114'),(28,28,'residencial','urbana','25600-116'),(29,29,'sede','rural','20000-115'),(30,30,'residencial','urbana','25600-117'),(31,31,'sede','urbana','20000-116'),(32,32,'residencial','rural','25600-118'),(33,33,'sede','urbana','20000-117'),(34,34,'residencial','urbana','25600-119'),(35,35,'sede','rural','20000-118'),(36,36,'residencial','urbana','25600-120'),(37,37,'sede','urbana','20000-119'),(38,38,'residencial','rural','25600-121'),(39,39,'sede','urbana','20000-120'),(40,40,'residencial','urbana','25600-122'),(41,41,'sede','rural','20000-121'),(42,42,'residencial','urbana','25600-123'),(43,43,'sede','urbana','20000-122'),(44,44,'residencial','rural','25600-124'),(45,45,'sede','urbana','20000-123'),(46,46,'residencial','urbana','25600-125'),(47,47,'sede','rural','20000-124'),(48,48,'residencial','urbana','25600-126'),(49,49,'sede','urbana','20000-125'),(50,50,'residencial','rural','25600-127');
+
+INSERT INTO propriedades VALUES (4,4,'imovel',250000.00),(5,5,'terreno',300000.00),(6,6,'tratores',120000.00),(7,7,'imovel',400000.00),(8,8,'terreno',180000.00),(9,9,'tratores',200000.00),(10,10,'imovel',220000.00),(11,11,'terreno',270000.00),(12,12,'tratores',130000.00),(13,13,'imovel',350000.00),(14,14,'terreno',210000.00),(15,15,'tratores',170000.00),(16,16,'imovel',260000.00),(17,17,'terreno',320000.00),(18,18,'tratores',140000.00),(19,19,'imovel',370000.00),(20,20,'terreno',230000.00),(21,21,'tratores',160000.00),(22,22,'imovel',280000.00),(23,23,'terreno',340000.00),(24,24,'tratores',150000.00),(25,25,'imovel',390000.00),(26,26,'terreno',250000.00),(27,27,'tratores',180000.00),(28,28,'imovel',410000.00),(29,29,'terreno',240000.00),(30,30,'tratores',190000.00),(31,31,'imovel',420000.00),(32,32,'terreno',260000.00),(33,33,'tratores',200000.00),(34,34,'imovel',430000.00),(35,35,'terreno',270000.00),(36,36,'tratores',210000.00),(37,37,'imovel',440000.00),(38,38,'terreno',280000.00),(39,39,'tratores',220000.00),(40,40,'imovel',450000.00),(41,41,'terreno',290000.00),(42,42,'tratores',230000.00),(43,43,'imovel',460000.00),(44,44,'terreno',300000.00),(45,45,'tratores',240000.00),(46,46,'imovel',470000.00),(47,47,'terreno',310000.00),(48,48,'tratores',250000.00),(49,49,'imovel',480000.00),(50,50,'terreno',320000.00);
+
+INSERT INTO negativacao VALUES (4,false),(5,true),(6,false),(7,false),(8,true),(9,false),(10,false),(11,true),(12,false),(13,false),(14,true),(15,false),(16,false),(17,true),(18,false),(19,false),(20,true),(21,false),(22,false),(23,true),(24,false),(25,false),(26,true),(27,false),(28,false),(29,true),(30,false),(31,false),(32,true),(33,false),(34,false),(35,true),(36,false),(37,false),(38,true),(39,false),(40,false),(41,true),(42,false),(43,false),(44,true),(45,false),(46,false),(47,true),(48,false),(49,false),(50,true);
+
+-- Repita o padrão acima para os ids de 51 até 150
+
+-- Exemplo para os próximos 10 registros (repita até 150):
+
+INSERT INTO cliente VALUES (51,'Cliente 51','PF',10500.00),(52,'Cliente 52','PJ',210000.00),(53,'Cliente 53','PF',11500.00),(54,'Cliente 54','PJ',220000.00),(55,'Cliente 55','PF',12500.00),(56,'Cliente 56','PJ',230000.00),(57,'Cliente 57','PF',13500.00),(58,'Cliente 58','PJ',240000.00),(59,'Cliente 59','PF',14500.00),(60,'Cliente 60','PJ',250000.00);
+
+INSERT INTO endereco VALUES (51,51,'residencial','urbana','25600-128'),(52,52,'sede','rural','20000-126'),(53,53,'residencial','urbana','25600-129'),(54,54,'sede','urbana','20000-127'),(55,55,'residencial','rural','25600-130'),(56,56,'sede','urbana','20000-128'),(57,57,'residencial','urbana','25600-131'),(58,58,'sede','rural','20000-129'),(59,59,'residencial','urbana','25600-132'),(60,60,'sede','urbana','20000-130');
+
+INSERT INTO propriedades VALUES (51,51,'imovel',490000.00),(52,52,'terreno',330000.00),(53,53,'tratores',260000.00),(54,54,'imovel',500000.00),(55,55,'terreno',340000.00),(56,56,'tratores',270000.00),(57,57,'imovel',510000.00),(58,58,'terreno',350000.00),(59,59,'tratores',280000.00),(60,60,'imovel',520000.00);
+
+INSERT INTO negativacao VALUES (51,false),(52,true),(53,false),(54,false),(55,true),(56,false),(57,false),(58,true),(59,false),(60,false);
+
+-- Continue esse padrão até o id 150 para cada tabela.
