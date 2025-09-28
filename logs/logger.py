@@ -3,7 +3,7 @@ import traceback
 
 # configuração básica do logger
 logging.basicConfig(
-    filename="logs/etl.log",
+    filename="./etl.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
@@ -11,7 +11,7 @@ logging.basicConfig(
 
 class ETLLogger:
     @staticmethod
-    def log_event(event, db=None, table=None, action=None, result=None, error=None):
+    def log_event(event, db=None, table=None, action=None, result=None, error=None):  # noqa
         """
         Cria um log detalhado do evento do ETL.
         """
