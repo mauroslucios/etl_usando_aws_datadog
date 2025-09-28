@@ -53,3 +53,4 @@ class Loader:
 
         flush_batch(batch, file_index)
         ETLLogger.log_event(event="Carga S3", result="Finalizada com sucesso")
+        
