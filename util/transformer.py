@@ -37,3 +37,4 @@ class Transformer:
         ETLLogger.log_event(event="Transformação", action="Aplicar regra de negócio")
 
         return joined
+        
