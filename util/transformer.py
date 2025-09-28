@@ -3,7 +3,7 @@ from logs.etl_logger import ETLLogger
 
 class Transformer:
     @staticmethod
-    def transform_bussiness_rule(df_cliente, def_endereco, df_prop, df_neg):
+    def transform_business_rule(df_cliente, df_endereco, df_prop, df_neg):
         ETLLogger.log_event(event="Transformação", action="Aplicar regra de negócio")
 
         bens_sum = df_prop.groupBy("cliente_id").agg(spark_sum(col("valor")).alias("valor_total_bens"))
