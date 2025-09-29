@@ -126,4 +126,4 @@ Exemplo:
 - Melhorar performance da escrita em S3 (uso de `coalesce` ou `repartition`).
 - Criar docker-compose para orquestrar Spark + MySQL + Mongo + LocalStack.
 
-![LocalStack](https://github.com/mauroslucios/etl_usando_aws_datadog/issues/5#issue-3463030524)
+![LocalStack](https://github.com/mauroslucios/etl_usando_aws_datadog/issues/5)
