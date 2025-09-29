@@ -71,7 +71,9 @@ O pipeline executa as seguintes etapas:
 
 2. **Executar o ETL:**
    ```bash
-   spark-submit      --jars jars/mysql-connector-j-8.0.33.jar      etl_motivo_decisao.py
+   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+   export PATH=$JAVA_HOME/bin:$PATH
+   spark-submit --jars mysql-connector-j-8.0.33.jar main.py
    ```
 
 3. **Verificar logs:**
