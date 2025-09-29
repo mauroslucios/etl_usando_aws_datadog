@@ -126,5 +126,5 @@ Exemplo:
 - Melhorar performance da escrita em S3 (uso de `coalesce` ou `repartition`).
 - Criar docker-compose para orquestrar Spark + MySQL + Mongo + LocalStack.
 
-![LocalStack]
+***LocalStack***
 <img width="1366" height="765" alt="Image" src="https://github.com/user-attachments/assets/3655270f-9e77-478d-88ad-42713c5deb80" />
