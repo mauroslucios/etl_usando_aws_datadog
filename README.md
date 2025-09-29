@@ -84,6 +84,10 @@ O pipeline executa as seguintes etapas:
 ---
 
 ## 📦 Exemplos de Uso (S3 via LocalStack)
+### Criar um bucket no localstack
+```bash
+awslocal s3 mb s3://motivo-de-decisao
+```
 
 ### Listar arquivos gerados no bucket:
 ```bash
@@ -128,3 +132,4 @@ Exemplo:
 
 ***LocalStack***
 <img width="1366" height="765" alt="Image" src="https://github.com/user-attachments/assets/3655270f-9e77-478d-88ad-42713c5deb80" />
+
