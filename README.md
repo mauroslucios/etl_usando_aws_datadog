@@ -132,4 +132,4 @@ Exemplo:
 
 ***LocalStack***
 <img width="1366" height="765" alt="Image" src="https://github.com/user-attachments/assets/3655270f-9e77-478d-88ad-42713c5deb80" />
-
+<img width="1359" height="1070" alt="Image" src="https://github.com/user-attachments/assets/3c038577-259f-4396-a49f-3f2354fb4879" />
